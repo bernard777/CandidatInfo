@@ -1,0 +1,50 @@
+<div class="container">
+    <br>
+    <div>
+        <h2>
+            Enregistrer un candidat
+        </h2>
+    </div>
+    <form>
+        <br>
+        <div class="mb-3">
+            <label for="inputNom" class="form-label">Nom</label>
+            <input type="text" class="form-control" id="inputNom" [(ngModel)]=" newCandidat.nom" name="nom">
+        </div>
+        <div class="mb-3">
+            <label for="inputPrenom" class="form-label">Prenom</label>
+            <input type="text" class="form-control" id="inputPrenom" [(ngModel)]=" newCandidat.prenom" name="prenom">
+        </div>
+        <div class="mb-3">
+            <label for="inputEmail" class="form-label">Email</label>
+            <input type="email" class="form-control" id="inputEmail" [(ngModel)]=" newCandidat.email" name="email">
+        </div>
+        <div class="mb-3">
+            <label for="inputTelephone" class="form-label">Téléphone</label>
+            <input type="text" class="form-control" id="inputTelephone" [(ngModel)]=" newCandidat.telephone" name="telephone">
+        </div>
+        <div class="mb-3">
+            <label for="inputAdressePostale" class="form-label">Adresse Postale</label>
+            <input type="text" class="form-control" id="inputAdressePostale" [(ngModel)]=" newCandidat.adressePostale" name="adressePostale">
+        </div>
+        <div class="mb-3">
+            <label for="inputPosteCandidat" class="form-label">Poste Candidat</label>
+            <input type="text" class="form-control" id="inputPosteCandidat" [(ngModel)]=" newCandidat.posteCandidat" name="posteCandidat">
+        </div>
+        <div class="mb-3">
+            <label for="inputTechnologie" class="form-label">Technologie</label>
+            <select class="form-select" id="inputTechnologie" aria-label="Liste des technologies" [(ngModel)]="newCandidat.technologie" name="technologie">
+              <option selected>Sélectionnez une technologie</option>
+              <option *ngFor="let technologie of technologies" [value]="technologie">{{technologie}}</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="inputDateEnregistrement" class="form-label">Date d'enrégistrement</label>
+            <input type="date" class="form-control" id="inputDateEnregistrement" [(ngModel)]=" newCandidat.dateEnregistrement" name="dateEnregistrement">
+        </div>
+
+        <button type="submit" (click)="addCandidat($event)" class="btn btn-primary me-2">Enregistrer</button>
+        <button class="btn btn-outline-danger" (click)="cancel()">Annuler</button>
+    </form>
+</div>
+

@@ -1,0 +1,59 @@
+<div class="container">
+    <div>
+        <h2>
+            Modifier un candidat
+        </h2>
+    </div>
+    <form>
+        <br>
+        <div class="mb-3" hidden>
+            <label for="inputId" class="form-label">idCandidat</label>
+            <input type="text" class="form-control" id="inputId" [(ngModel)]=" currentCandidat.idCandidat" name="idCandidat">
+        </div>
+        <div class="mb-3">
+            <label for="inputNom" class="form-label">Nom</label>
+            <input type="text" class="form-control" id="inputNom" [(ngModel)]=" currentCandidat.nom" name="nom">
+        </div>
+        <div class="mb-3">
+            <label for="inputPrenom" class="form-label">Prenom</label>
+            <input type="text" class="form-control" id="inputPrenom" [(ngModel)]=" currentCandidat.prenom" name="prenom">
+        </div>
+        <div class="mb-3">
+            <label for="inputEmail" class="form-label">Email</label>
+            <input type="email" class="form-control" autocomplete="active " id="inputEmail" [(ngModel)]=" currentCandidat.email" name="email">
+        </div>
+        <div class="mb-3">
+            <label for="inputTelephone" class="form-label">Téléphone</label>
+            <input type="text" class="form-control" id="inputTelephone" [(ngModel)]=" currentCandidat.telephone" name="telephone">
+        </div>
+        <div class="mb-3">
+            <label for="inputAdressePostale" class="form-label">Adresse Postale</label>
+            <input type="text" class="form-control" id="inputAdressePostale" [(ngModel)]=" currentCandidat.adressePostale" name="adressePostale">
+        </div>
+        <div class="mb-3">
+            <label for="inputPosteCandidat" class="form-label">Poste Candidat</label>
+            <input type="text" class="form-control" id="inputPosteCandidat" [(ngModel)]=" currentCandidat.posteCandidat" name="posteCandidat">
+        </div>
+        <div class="mb-3">
+            <label for="inputTechnologie" class="form-label">Technologie</label>
+            <select class="form-select" id="inputTechnologie" aria-label="Liste des technologies" [(ngModel)]="currentCandidat.technologie" name="technologie">
+              <option selected>Sélectionnez une technologie</option>
+              <option *ngFor="let technologie of technologies" [value]="technologie">{{technologie}}</option>
+            </select>
+        </div>
+          
+        <div class="mb-3">
+            <label for="inputDateEnregistrement" class="form-label">Date d'enregistrement</label>
+            <input type="date" NgbInputDatepicker class="form-control" id="inputDateEnregistrement" 
+                   [ngModel]="currentCandidat.dateEnregistrement | date : 'yyyy-MM-dd'"
+                   (ngModelChange)="currentCandidat.dateEnregistrement = $event" 
+                   name="dateEnregistrement">
+        </div>
+        
+
+        <button type="submit" (click)="updateCandidat()" class="btn btn-primary me-2">Enregistrer</button>
+        <button class="btn btn-outline-danger" (click)="cancel()">Annuler</button>
+    </form>
+</div>
+
+

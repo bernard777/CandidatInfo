@@ -1,0 +1,39 @@
+<div class="container">
+    <br>
+    <!-- <form class="d-flex">
+        <input class="form-control me-2" type="search" name="searchText" [(ngModel)]="searchText" placeholder="Rechercher" aria-label="Rechercher">
+        <button class="btn btn-outline-success" type="submit" (click)="findByNomCandidat()">Rechercher</button>
+    </form> -->
+
+    <!-- <form class="d-flex">
+        <label class="fw-bold "> Recherche dynamique : </label>
+        <input class="form-control me-2" #searchText (keyup)="dynamicSearch(searchText.value)">
+    </form> -->
+
+    <form class="d-flex">
+        <label class="fw-bold "> Recherche dynamique : </label>
+        <input class="form-control me-2" #nom name="searchText" [(ngModel)]="searchText">
+    </form>
+
+
+    <div class="row">
+        <div class="col-md-4 mb-3" *ngFor="let searchCandidat of searchCandidats | searchFilter: searchText">
+        <div class="card mt-3" style="width:350px">
+            <img class="card-img-top" src="../../assets/images/img_avatar1.png" alt="Card image" style="width:100%">
+            <div class="card-body">
+            <h4 class="card-title">{{searchCandidat.nom}} {{searchCandidat.prenom}}</h4>
+            <p class="card-text">
+                <label class="fw-bold "> Email : </label> {{searchCandidat.email}} <br>
+                <label class="fw-bold "> Téléphone : </label> {{searchCandidat.telephone}} <br>
+                <label class="fw-bold "> Adresse Postale : </label> {{searchCandidat.adressePostale}} <br>
+                <label class="fw-bold "> Poste : </label> {{searchCandidat.posteCandidat}} <br>
+                <label class="fw-bold "> Technologie : </label> {{searchCandidat.technologie}} <br>
+                <label class="fw-bold "> Enregistré le : </label> {{searchCandidat.dateEnregistrement | date:'dd/MM/yyyy'}}
+            </p>
+            <a href="#" class="btn btn-primary me-3" [routerLink]="['/updateCandidat',searchCandidat.idCandidat]">Modifier</a> 
+            <a href="#" class="btn btn-danger" (click)="deleteCandidat(searchCandidat)">Supprimer</a>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
